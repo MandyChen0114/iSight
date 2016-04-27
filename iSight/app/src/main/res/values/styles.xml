@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="buttonStyle">@style/RobotoButtonStyle</item>
+    </style>
+
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="ToolBarTextStyle" parent="RobotoTextViewStyle">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TestTitleTextViewStyle" parent="RobotoTextViewStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TestIntroTextViewStyle" parent="RobotoTextViewStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:minLines">1</item>
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:background">@drawable/yellowbtn</item>
+    </style>
+
+    <style name="shortButtonStyle" parent="RobotoButtonStyle">
+        <item name="android:layout_width">110dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="longButtonStyle" parent="RobotoButtonStyle">
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">42dp</item>
+    </style>
+
+    <style name="thinButtonStyle" parent="RobotoButtonStyle">
+        <item name="android:layout_width">110dp</item>
+        <item name="android:layout_height">36dp</item>
+    </style>
+</resources>

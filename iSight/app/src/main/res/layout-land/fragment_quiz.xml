@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/sign_in_button"
+        style="@style/shortButtonStyle"
+        android:text="@string/action_start_quiz"
+        android:layout_width="180dp"
+        android:gravity="center"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="85dp"/>
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">iSight</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_up">Sign up</string>
+    <string name="action_sign_in_short">Sign in</string>
+
+    <string name="action_sign_in">Sign in</string>
+    <string name="username">Username</string>
+    <string name="email">Email address</string>
+    <string name="password">Password</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="userAge">Age (optional)</string>
+    <string name="userPhoneNumber">Phone number (optional)</string>
+    <string name="action_back">Back</string>
+    <string name="Test">Test</string>
+    <string name="visual_acuity">Visual Acuity</string>
+    <string name="Presbyopic">Presbyopic</string>
+    <string name="Color_Blind">Color Blindness</string>
+    <string name="Amsler_Grid">Amsler Grid</string>
+    <string name="motion_acuity">Motion Acuity</string>
+    <string name="astigmatism">Astigmatism</string>
+    <string name="pupillary_distance">Pupillary Distance</string>
+    <string name="action_unable">I can\'t see it</string>
+    <string name="action_next">Next one</string>
+    <string name="action_start_quiz">Start A Quiz</string>
+    <string name="during1">1 month</string>
+    <string name="during2">3 month</string>
+    <string name="during3">6 month</string>
+    <string name="during4">12 month</string>
+    <string name="action_choose_test">Test type : </string>
+    <string name="login_account">Username or Email Address</string>
+    <string name="test_colorblind">Color Blind Test</string>
+    <string name="action_showresult">Result</string>
+    <string name="res_colorblind">Normal color vision: 26\nRed color blind (protanopia):6\nmild red color blind (prontanomaly): 2\nGreen color blind (deuteranopia): 2\nmild green color blind (deuteranomaly): 6</string>
+</resources>
