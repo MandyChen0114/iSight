@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
         <item name="buttonStyle">@style/RobotoButtonStyle</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
@@ -31,7 +32,18 @@
         <item name="android:minLines">1</item>
         <item name="android:singleLine">false</item>
     </style>
-
+    <style name="QuizTextViewStyle" parent="RobotoTextViewStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:minLines">1</item>
+        <item name="android:singleLine">false</item>
+    </style>
+    <style name="QuizResultTextViewStyle" parent="RobotoTextViewStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:minLines">1</item>
+        <item name="android:singleLine">false</item>
+    </style>
     <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">@color/colorPrimary</item>

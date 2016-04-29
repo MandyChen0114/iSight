@@ -60,8 +60,6 @@ public class Activity_Test_ColorBlind extends Activity{
     }
 
     private void getTestImages() {
-
-
         int size=list.size();
         Random rand = new Random();
         TestColorBlind  testimg = list.get(rand.nextInt(size));

@@ -24,7 +24,7 @@
     <string name="astigmatism">Astigmatism</string>
     <string name="pupillary_distance">Pupillary Distance</string>
     <string name="action_unable">I can\'t see it</string>
-    <string name="action_next">Next one</string>
+    <string name="action_next">Next</string>
     <string name="action_start_quiz">Start A Quiz</string>
     <string name="during1">1 month</string>
     <string name="during2">3 month</string>
@@ -35,4 +35,19 @@
     <string name="test_colorblind">Color Blind Test</string>
     <string name="action_showresult">Result</string>
     <string name="res_colorblind">Normal color vision: 26\nRed color blind (protanopia):6\nmild red color blind (prontanomaly): 2\nGreen color blind (deuteranopia): 2\nmild green color blind (deuteranomaly): 6</string>
+    <string name="Quiz">Quiz</string>
+    <string name="True">True</string>
+    <string name="False">False</string>
+    <string name="quiz_question_index">1</string>
+    <string name="quiz_question">. Rubbing your eye is a good way to remove foreign particles:</string>
+    <string name="quiz_result1">Correct:</string>
+    <string name="quiz_result2"><b>10</b></string>
+    <string name="quiz_result3">Wrong:</string>
+    <string name="quiz_result4">3</string>
+    <string name="quiz_result5">Your test scores are</string>
+    <string name="quiz_result6">10</string>
+    <string name="quiz_result7">points.\n</string>
+    <string name="quiz_result_pass">Congratulations, you know how to protect your eyes very well!</string>
+    <string name="quiz_result_fail">wrong question1:false</string>
+    <string name="test_amslerGrid">Amsler Grid</string>
 </resources>

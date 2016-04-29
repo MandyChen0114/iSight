@@ -84,9 +84,19 @@ public class Fragment_Test extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Test t = testListAdapter.getItem(position);
-                if (position == 2) {
-                    Intent intent = new Intent(getActivity(), Activity_Test_ColorBlind.class);
-                    startActivity(intent);
+                Intent intent;
+                switch (position)
+                {
+                    case 2:
+                        intent = new Intent(getActivity(), Activity_Test_ColorBlind.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(getActivity(), Activity_Test_AmslerGrid.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        break;
                 }
             }
         });

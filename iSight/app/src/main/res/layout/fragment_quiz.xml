@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/sign_in_button"
+        android:id="@+id/quiz_start_btn"
         style="@style/shortButtonStyle"
         android:text="@string/action_start_quiz"
         android:layout_width="180dp"

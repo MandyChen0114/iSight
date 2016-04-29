@@ -4,17 +4,19 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
+import edu.cmu.supermandy.isight.model.Quiz;
 import edu.cmu.supermandy.isight.model.User;
 
 /**
  * Created by Mandy on 4/11/16.
  */
-public class UserDAO {
+public class DBDAO {
     private SQLiteDatabase db;
 
-    public UserDAO(Context context) {
+    public DBDAO(Context context) {
         db = new DBHelper(context).getWritableDatabase();
     }
 
@@ -38,6 +40,32 @@ public class UserDAO {
         } finally {
             db.endTransaction();
         }
+    }
+
+    public void insertQuiz(Quiz quiz) {
+        /**
+         * insert info of users into database
+         */
+        db.beginTransaction();
+        try {
+            ContentValues values = new ContentValues();
+            values.put("Question",  quiz.getQuestion());
+            values.put("Answer", quiz.getAnswer() );
+            db.insert("QuizTable", null, values);
+            db.setTransactionSuccessful();
+
+            Log.d("Insert a quiz.", "Succeed");
+
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public int count(String TableName){
+        String sql = "SELECT COUNT(*) FROM "+TableName+";";
+        SQLiteStatement statement = db.compileStatement(sql);
+        int count = (int)statement.simpleQueryForLong();
+        return count;
     }
 
     public int checkDataExist(String TableName, String dbfield, String fieldValue) {

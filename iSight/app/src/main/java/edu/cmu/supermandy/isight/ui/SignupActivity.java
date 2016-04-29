@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import edu.cmu.supermandy.isight.model.User;
-import edu.cmu.supermandy.isight.util.UserDAO;
+import edu.cmu.supermandy.isight.util.DBDAO;
 
 /**
  * Created by Mandy on 4/4/16.
@@ -57,7 +57,7 @@ public class SignupActivity extends Activity {
     }
 
     private boolean insertUser() {
-        final UserDAO userdao = new UserDAO(this);
+        final DBDAO userdao = new DBDAO(this);
         int userId;
         String username = usernameEditText.getText().toString();
         String email = emailEditText.getText().toString();

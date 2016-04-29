@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.cmu.supermandy.isight.model.User;
-import edu.cmu.supermandy.isight.util.UserDAO;
+import edu.cmu.supermandy.isight.util.DBDAO;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -57,7 +57,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         FontsOverride.setDefaultFont(this, "DEFAULT", "Roboto-Thin.ttf");
-        final UserDAO userdao=new UserDAO(this);
+        final DBDAO userdao=new DBDAO(this);
         accountAutoView= (AutoCompleteTextView) findViewById(R.id.login_email);
         passwordEditText=(EditText)findViewById(R.id.login_password);
         signInButton=(Button)findViewById(R.id.login_sign_in_button);
@@ -80,7 +80,7 @@ public class LoginActivity extends Activity {
     }
 
 
-    private User validatelogin(UserDAO userdao){
+    private User validatelogin(DBDAO userdao){
         account=accountAutoView.getText().toString();
         password=passwordEditText.getText().toString();
         int userId=-1;
@@ -102,7 +102,7 @@ public class LoginActivity extends Activity {
         return user;
     }
 
-    private User checkPassword(UserDAO userdao, int id, String inputPwd){
+    private User checkPassword(DBDAO userdao, int id, String inputPwd){
         String[] columnindex=new String[]{"Username","Email","Password","Age","PhoneNum"};
         String[] userinfo=userdao.getRowData("UserTable","Id",id+" ",columnindex);
         String username=userinfo[0];

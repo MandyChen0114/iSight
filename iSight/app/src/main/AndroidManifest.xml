@@ -25,6 +25,7 @@
         <activity android:name=".SignupActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".Activity_Test_ColorBlind"/>
+        <activity android:name=".Activity_Quiz"/>
     </application>
 
 </manifest>
