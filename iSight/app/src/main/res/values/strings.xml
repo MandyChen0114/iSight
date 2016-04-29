@@ -50,4 +50,18 @@
     <string name="quiz_result_pass">Congratulations, you know how to protect your eyes very well!</string>
     <string name="quiz_result_fail">wrong question1:false</string>
     <string name="test_amslerGrid">Amsler Grid</string>
+    <string name="testInstruction_amslerGrid">Please cover one eye, look at the dot in the center of the grid, and check how the grid appear:</string>
+    <string name="amsler_grid_check1">Distortion or wavy lines</string>
+    <string name="amsler_grid_check2">Blurring or grey areas</string>
+    <string name="amsler_grid_check3">Holes or spots in any areas of the grid</string>
+    <string name="amsler_grid_check4">Centre dot or a part of the dot disappears</string>
+    <string name="amsler_grid_check5">All lines straight, all sqaures equal in size</string>
+    <string name="res_amslerGrid">Congratulations, you are not at risk for macular degeneration or other eye diseases related to central visual field!</string>
+    <string name="explain_amslerGrid">The abnormal Amsler Grid is like below:</string>
+    <string name="test_astigmatism">Astigmatism</string>
+    <string name="testInstruction_astigmatism">Please cover one eye without pressing on the lid, and choose how lines in the above figure appear:</string>
+    <string name="test_astigmatism_normal">All lines appear sharply focused and equally dark.</string>
+    <string name="test_astigmatism_abnormal">Some sets of lines appear sharp and dark, while others are blurred and lighter.</string>
+    <string name="explain_astigmatism">The abnormal Astigmatism is like below:</string>
+    <string name="res_astigmatism">Congratulations, you are not at risk for astigmatism!</string>
 </resources>

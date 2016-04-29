@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/ToolBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/test_astigmatism" />
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/testResult_astigmatism"
+        style="@style/TestIntroTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:lineSpacingExtra="4dp"
+        android:maxLines="10"
+        android:text="@string/res_astigmatism"/>
+
+    <TextView
+        android:id="@+id/testExplanation_astigmatism"
+        style="@style/TestIntroTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="4dp"
+        android:maxLines="10"
+        android:text="@string/explain_astigmatism"/>
+    <ImageView
+        android:id="@+id/testimage_astigmastism"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/astigmatism2" />
+</LinearLayout>

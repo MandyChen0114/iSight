@@ -13,6 +13,7 @@
 
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
     <style name="ToolBarTextStyle" parent="RobotoTextViewStyle">

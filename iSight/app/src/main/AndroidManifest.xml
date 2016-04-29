@@ -26,6 +26,8 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".Activity_Test_ColorBlind"/>
         <activity android:name=".Activity_Quiz"/>
+        <activity android:name=".Activity_Test_AmslerGrid"/>
+        <activity android:name=".Activity_Test_Astigmatism"/>
     </application>
 
 </manifest>
