@@ -64,4 +64,9 @@
     <string name="test_astigmatism_abnormal">Some sets of lines appear sharp and dark, while others are blurred and lighter.</string>
     <string name="explain_astigmatism">The abnormal Astigmatism is like below:</string>
     <string name="res_astigmatism">Congratulations, you are not at risk for astigmatism!</string>
+    <string name="test_pd">Pupillary Distance</string>
+    <string name="test_result_pd">The proportion of your pupil distance to face is </string>
+    <string name="test_result_pd2">43</string>
+    <string name="test_result_pd3">%.</string>
+    <string name="test_result_pd4"></string>
 </resources>

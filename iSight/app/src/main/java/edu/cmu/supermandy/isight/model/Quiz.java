@@ -5,7 +5,6 @@ package edu.cmu.supermandy.isight.model;
  */
 public class Quiz {
     String question;
-    int correctchoice;
     String answer;
 
     public Quiz(String question, String answer) {
@@ -21,18 +20,6 @@ public class Quiz {
         this.question = question;
     }
 
-    public int getCorrectchoice() {
-        if(answer.equals("true")){
-            this.correctchoice=2131492991;
-        }else{
-            this.correctchoice=2131492992;
-        }
-        return correctchoice;
-    }
-
-    public void setCorrectchoice(int correctchoice) {
-        this.correctchoice = correctchoice;
-    }
 
     public String getAnswer() {
         return answer;

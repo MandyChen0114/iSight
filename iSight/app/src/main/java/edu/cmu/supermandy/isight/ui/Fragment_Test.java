@@ -99,6 +99,10 @@ public class Fragment_Test extends Fragment {
                         intent = new Intent(getActivity(), Activity_Test_Astigmatism.class);
                         startActivity(intent);
                         break;
+                    case 6:
+                        intent = new Intent(getActivity(), Activity_Test_PD.class);
+                        startActivity(intent);
+                        break;
                     default:
                         break;
                 }
