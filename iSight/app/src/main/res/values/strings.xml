@@ -12,7 +12,7 @@
     <string name="email">Email address</string>
     <string name="password">Password</string>
     <string name="confirmpassword">Confirm Password</string>
-    <string name="userAge">Age (optional)</string>
+    <string name="userAge">Age</string>
     <string name="userPhoneNumber">Phone number (optional)</string>
     <string name="action_back">Back</string>
     <string name="Test">Test</string>
