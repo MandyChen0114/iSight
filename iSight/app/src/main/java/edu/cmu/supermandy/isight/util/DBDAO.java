@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
 import edu.cmu.supermandy.isight.model.Quiz;
+import edu.cmu.supermandy.isight.model.Record;
 import edu.cmu.supermandy.isight.model.User;
 
 /**
@@ -44,7 +45,7 @@ public class DBDAO {
 
     public void insertQuiz(Quiz quiz) {
         /**
-         * insert info of users into database
+         * insert info of quizs into database
          */
         db.beginTransaction();
         try {
@@ -55,6 +56,47 @@ public class DBDAO {
             db.setTransactionSuccessful();
 
             Log.d("Insert a quiz.", "Succeed");
+
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public void insertRecord(Record record) {
+        /**
+         * insert info of records into database
+         */
+        db.beginTransaction();
+        try {
+            ContentValues values = new ContentValues();
+            values.put("UserId", record.getUserId());
+            values.put("TestId", record.getTestId());
+            values.put("Timestamp", record.getTimestamp());
+            values.put("Result", record.getResult());
+            db.insert("RecordTable", null, values);
+            db.setTransactionSuccessful();
+
+            Log.d("Insert a record.", "Succeed");
+
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public void deleteUser(int userid){
+        String Query = "DELETE FROM UserTable WHERE ID='"+userid+"';";
+        db.execSQL(Query);
+    }
+    public void clearRecord() {
+        /**
+         * delete info of records into database
+         */
+        db.beginTransaction();
+        try {
+            db.delete("RecordTable", null, null);
+            db.setTransactionSuccessful();
+
+            Log.d("delete all records.", "Succeed");
 
         } finally {
             db.endTransaction();

@@ -49,7 +49,7 @@ public class SignupActivity extends Activity {
             public void onClick(View v) {
                 Boolean signupSucceed=insertUser();
                 if (signupSucceed) {
-                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                    startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                 }
             }
         });

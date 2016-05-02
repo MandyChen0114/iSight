@@ -67,7 +67,10 @@ public class LoginActivity extends Activity {
             public void onClick(View v) {
                 User validuser=validatelogin(userdao);
                 if(validuser!=null) {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    Intent intent = new Intent();
+                    intent.setClass(LoginActivity.this,MainActivity.class);
+                    intent.putExtra("Id", validuser.getId()+"");
+                    startActivity(intent);
                 }
             }
         });
@@ -114,6 +117,7 @@ public class LoginActivity extends Activity {
             return null;
         }
         User user=new User(username,email,password,age,phoneNum);
+        user.setId(id);
         return user;
     }
 }

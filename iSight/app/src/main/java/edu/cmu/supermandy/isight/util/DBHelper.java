@@ -48,8 +48,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 .append("Id integer primary key autoincrement,")
                 .append("UserId integer,")
                 .append("TestId integer,")
-                .append("Timestamp date,")
-                .append("result text,")
+                .append("Timestamp text,")
+                .append("Result text,")
                 .append("FOREIGN KEY(UserId) REFERENCES UserTable(Id) on delete cascade on update cascade);");
         System.out.println("---------------------->success1");
         db.execSQL(sql_user.toString());

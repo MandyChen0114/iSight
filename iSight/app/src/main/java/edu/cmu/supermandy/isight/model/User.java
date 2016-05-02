@@ -4,6 +4,7 @@ package edu.cmu.supermandy.isight.model;
  * Created by Mandy on 4/11/16.
  */
 public class User {
+    Integer id;
     String username;
     String email;
     String password;
@@ -16,6 +17,14 @@ public class User {
         this.password = password;
         this.age = age;
         this.phoneNum = phoneNum;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {

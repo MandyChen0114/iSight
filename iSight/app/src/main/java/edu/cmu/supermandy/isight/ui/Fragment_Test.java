@@ -21,6 +21,7 @@ import edu.cmu.supermandy.isight.model.TestMotionAcuity;
 import edu.cmu.supermandy.isight.model.TestPD;
 import edu.cmu.supermandy.isight.model.TestPresbyopic;
 import edu.cmu.supermandy.isight.model.TestVisualAcuity;
+import edu.cmu.supermandy.isight.util.DBDAO;
 
 /**
  * Created by Mandy on 4/4/16.
@@ -87,6 +88,10 @@ public class Fragment_Test extends Fragment {
                 Intent intent;
                 switch (position)
                 {
+                    case 0:
+                        intent=new Intent(getActivity(),Activity_Test_VisualAcuity.class);
+                        startActivity(intent);
+                        break;
                     case 2:
                         intent = new Intent(getActivity(), Activity_Test_ColorBlind.class);
                         startActivity(intent);

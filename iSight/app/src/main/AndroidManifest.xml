@@ -29,6 +29,12 @@
         <activity android:name=".Activity_Test_AmslerGrid"/>
         <activity android:name=".Activity_Test_Astigmatism"/>
         <activity android:name=".Activity_Test_PD"/>
+        <activity
+            android:name=".Activity_Test_VisualAcuity"
+            android:label="@string/title_activity_activity__test__visual_acuity"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".AccountActivity"/>
+        <activity android:name=".ChangePWDActivity"/>
     </application>
 
     <supports-screens android:resizeable="true"
@@ -39,10 +45,17 @@
 
     <uses-sdk android:minSdkVersion="8" />
 
-
+    <!-- To use camera in face recognition -->
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
+
+    <!-- To use microphone in speech recognition -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-feature android:name="android.hardware.microphone"/>
+
+    <!-- To connect client and server -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
