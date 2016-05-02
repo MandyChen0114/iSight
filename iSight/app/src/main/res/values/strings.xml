@@ -69,4 +69,5 @@
     <string name="test_result_pd2">43</string>
     <string name="test_result_pd3">%.</string>
     <string name="test_result_pd4"></string>
+    <string name="test_motionacuity">Motion Acuity</string>
 </resources>
