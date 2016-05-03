@@ -35,6 +35,7 @@
             android:theme="@style/AppTheme"></activity>
         <activity android:name=".AccountActivity"/>
         <activity android:name=".ChangePWDActivity"/>
+        <activity android:name=".Activity_Test_MotionAcuity"/>
     </application>
 
     <supports-screens android:resizeable="true"
