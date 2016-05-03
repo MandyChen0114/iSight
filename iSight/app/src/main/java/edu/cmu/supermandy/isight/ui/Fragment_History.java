@@ -7,13 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import edu.cmu.supermandy.isight.model.Record;
@@ -24,14 +21,10 @@ import edu.cmu.supermandy.isight.util.DBDAO;
  */
 public class Fragment_History extends Fragment {
     private Spinner testSpinner;
-    private String[] testItems = new String[]{"Visual Acuity", "Presbyopic", "Color Blindness", "Amsler Grid", "Motion Acuity", "Astigmatism", "Pupillary Distance"};
+    private String[] testItems = new String[]{"Visual Acuity", "Presbyopic", "Amsler Grid", "Motion Acuity", "Astigmatism", "Pupillary Distance"};
     TextView historyTextView;
     String userid;
-    Button during1_button;
-    Button during2_button;
-    Button during3_button;
-    Button during4_button;
-    long startTime;
+    String startTime;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,56 +38,24 @@ public class Fragment_History extends Fragment {
         final String[] columnindex = new String[]{"UserId", "TestId", "Timestamp", "Result"};
 
         userid = this.getActivity().getIntent().getStringExtra("Id");
+//        if(dbdao.count("RecordTable")==0) {
+//            loadData(dbdao);
+//        }
         loadData(dbdao);
         testSpinner = (Spinner) getActivity().findViewById(R.id.testSpinner);
         historyTextView = (TextView) getActivity().findViewById(R.id.historyTextView);
-        during1_button = (Button) getActivity().findViewById(R.id.during1_button);
-        during2_button = (Button) getActivity().findViewById(R.id.during2_button);
-        during3_button = (Button) getActivity().findViewById(R.id.during3_button);
-        during4_button = (Button) getActivity().findViewById(R.id.during4_button);
 
 
-
-        during1_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startTime=(new Date().getTime())/1000-2678400;
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-System.out.println(dateFormat.format(startTime));
-            }
-        });
-        during2_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startTime=(new Date().getTime())/1000-2678400*3;
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                System.out.println(dateFormat.format(startTime));
-            }
-        });
-        during3_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startTime=(new Date().getTime())/1000-2678400*6;
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                System.out.println(dateFormat.format(startTime));
-            }
-        });
-        during4_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startTime=-1;
-            }
-        });
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.support_simple_spinner_dropdown_item, testItems);
         testSpinner.setAdapter(adapter);
         testSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position==5) {
-                    String testResult = gethistory(dbdao, position, startTime, columnindex);
-                    historyTextView.setText(testResult);
-                }
+                if (position >= 2) position += 1;
+
+                String testResult = gethistory(dbdao, position, columnindex);
+                historyTextView.setText(testResult);
+
             }
 
             @Override
@@ -104,32 +65,45 @@ System.out.println(dateFormat.format(startTime));
         });
     }
 
-    public String gethistory(DBDAO dbdao, int testid, long startTime, String[] columnindex) {
+    public String gethistory(DBDAO dbdao, int testid, String[] columnindex) {
         String testResult = "";
-        List<String[]> rowlist = new ArrayList<String[]>();
-       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        if (startTime == -1) {
+        List<String[]> rowlist = dbdao.getRowData("RecordTable", "UserId", userid, "TestId", testid + "", columnindex);
 
-            rowlist = dbdao.getRowData("RecordTable", "UserId", userid, "TestId", testid + "", columnindex);
-        } else {
-            rowlist = dbdao.getTimeRowData("RecordTable", "UserId", userid, "TestId", testid + "", "Timestamp", (int)startTime, columnindex);
-        }
         for (String[] history : rowlist) {
-            String timestamp = dateFormat.format(new Date(Long.parseLong(history[2])));
+            String timestamp = history[2];
             String result = history[3];
             testResult += "[" + timestamp + "] " + result + "\n";
         }
         return testResult;
     }
 
-    public void loadData(DBDAO dbdao){
+    public void loadData(DBDAO dbdao) {
+        for (int i = 0; i <=6; i++) {
+            String res1 = "";
+            String res2 = "";
+            String res3 = "";
+            if (i == 0 || i == 1 || i == 4) {
+                res1 = "Level: 1.0";
+                res2 = "Level: 3.0";
+                res3 = "Level: 2.0";
+            } else if (i == 2) {
+                continue;
+            } else if (i == 3 || i == 5) {
+                res1 = "Result: YES";
+                res2 = "Result: NO";
+                res3 = "Result: YES";
+            } else if (i == 6) {
+                res1 = "Pupil Distance/ Face = 43.65%";
+                res2 = "Pupil Distance/ Face = 43.94%";
+                res3 = "Pupil Distance/ Face = 43.12%";
+            }
 
-            Record r1=new Record(Integer.parseInt(userid),5,1459577678,"Result: YES");
-            Record r2=new Record(Integer.parseInt(userid),5,1454220904,"Result: YES");
-            Record r3=new Record(Integer.parseInt(userid),5,1446185758,"Result: YES");
+            Record r1 = new Record(Integer.parseInt(userid), i, "2016-03-14 00:21:34", res1);
+            Record r2 = new Record(Integer.parseInt(userid), i, "2016-01-14 00:21:34", res2);
+            Record r3 = new Record(Integer.parseInt(userid), i, "2015-10-16 00:21:34", res3);
             dbdao.insertRecord(r1);
             dbdao.insertRecord(r2);
             dbdao.insertRecord(r3);
-
+        }
     }
 }

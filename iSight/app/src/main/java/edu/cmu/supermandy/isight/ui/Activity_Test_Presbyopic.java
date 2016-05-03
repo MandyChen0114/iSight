@@ -11,9 +11,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
+
+import edu.cmu.supermandy.isight.model.Record;
+import edu.cmu.supermandy.isight.util.DBDAO;
 
 public class Activity_Test_Presbyopic extends Activity {
 
@@ -32,13 +37,17 @@ public class Activity_Test_Presbyopic extends Activity {
     private int candidateIndex = 0;
     private int level = 0;
     private int retryCount = 0;
+    private int id;
     private Random random = new Random();
+    DBDAO dbdao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_presbyopic_intro);
         Button enterButton = (Button) findViewById(R.id.enterButton);
+        id = Integer.valueOf(this.getIntent().getStringExtra("Id"));
+        DBDAO dbdao = new DBDAO(this);
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +104,11 @@ public class Activity_Test_Presbyopic extends Activity {
     private void saveResult() {
         Toast.makeText(getApplicationContext(),
                 "Your test score is: "+Double.toString(scores[level]), Toast.LENGTH_LONG).show();
-        // TODO: save to DB
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentTimeStamp = dateFormat.format(new Date());
+        String result="Level: "+Double.toString(scores[level]);
+        Record record=new Record(id,1,currentTimeStamp,result);
+        dbdao.insertRecord(record);
     }
 
     /**

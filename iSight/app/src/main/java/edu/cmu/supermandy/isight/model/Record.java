@@ -9,10 +9,10 @@ public class Record {
     Integer id;
     Integer userId;
     Integer testId;
-    Integer timestamp;
+    String timestamp;
     String result;
 
-    public Record(Integer userId, Integer testId, Integer timestamp, String result) {
+    public Record(Integer userId, Integer testId, String timestamp, String result) {
         this.userId = userId;
         this.testId=testId;
         this.timestamp = timestamp;
@@ -43,11 +43,11 @@ public class Record {
         this.testId = testId;
     }
 
-    public Integer getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Integer timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

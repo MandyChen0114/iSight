@@ -47,7 +47,9 @@ String testresult;
                      result="Result: NO";
                 }
                     testResult_astigmatism.setText(testresult);
-                Record record=new Record(id,5,(int)(new Date().getTime()),result);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String currentTimeStamp = dateFormat.format(new Date());
+                Record record=new Record(id,5,currentTimeStamp,result);
                 dbdao.insertRecord(record);
             }
         });

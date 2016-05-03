@@ -33,6 +33,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import edu.cmu.supermandy.isight.model.Record;
+import edu.cmu.supermandy.isight.util.DBDAO;
 
 /**
  * Created by Mandy on 4/29/16.
@@ -81,6 +86,7 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
     double pd_result = 0.00;
 
     String result;
+    int id;
     private CameraBridgeViewBase mOpenCvCameraView;
     private TextView resultTextView;
     private TextView resultTextView2;
@@ -185,6 +191,9 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
 
         setContentView(R.layout.activity_test_pd);
 
+        id = Integer.valueOf(this.getIntent().getStringExtra("Id"));
+        final DBDAO dbdao = new DBDAO(this);
+
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.fd_activity_surface_view);
         mOpenCvCameraView.setVisibility(CameraBridgeViewBase.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
@@ -198,6 +207,12 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
             public void onClick(View v) {
                 resultTextView.setText(result);
                 resultTextView2.setText("Congratulations! You have a perfect proportion!");
+
+                String testres="Pupil Distance/ Face = "+result+"%";
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String currentTimeStamp = dateFormat.format(new Date());
+                Record record=new Record(id,6,currentTimeStamp,testres);
+                dbdao.insertRecord(record);
 
             }
         });
