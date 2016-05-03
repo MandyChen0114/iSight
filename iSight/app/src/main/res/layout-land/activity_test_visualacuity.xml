@@ -4,58 +4,80 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     tools:context=".Activity_Test_VisualAcuity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <ImageView
-            android:layout_marginTop="10dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:adjustViewBounds="true"
-            android:id="@+id/testimage"
-            android:src="@drawable/microphone"
-            />
-        <TextView
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:id="@+id/testInstruction"
-            android:gravity="center_horizontal"
-            style="@style/TestIntroTextViewStyle"
-            android:textColor="@color/colorPrimary"
-            android:textSize="17sp"
-            android:text="Please read the number in the above plate."
-            />
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize">
 
-        <LinearLayout
+            <TextView
+                android:id="@+id/toolbar_title"
+                style="@style/ToolBarTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/test_visual_acuity" />
+        </android.support.v7.widget.Toolbar>
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
-
-
-            <Button
-                android:id="@+id/unablebtn"
-
-                style="@style/longButtonStyle"
-                android:text="@string/action_unable"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/candidate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="512sp"
+                android:textStyle="normal"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="0dp" />
+                android:text="N"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
 
-            <Button
-                android:id="@+id/nextbtn"
-                style="@style/longButtonStyle"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="0dp"
-                android:text="@string/action_next"
-                />
-        </LinearLayout>
+            <ImageButton
+                android:id="@+id/btn_refresh"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/refresh"
+                android:contentDescription="speak button"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageButton
+                android:id="@+id/btn_mic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/microphone"
+                android:contentDescription="speak button"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/hint" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:text="Try to say: 'No'"
+                android:textColor="@color/colorPrimary"
+                android:textSize="64sp"
+                android:textStyle="normal"
+                android:textAlignment="center"
+                android:id="@+id/hint"
+                android:layout_alignParentTop="true"
+                android:layout_alignEnd="@+id/btn_refresh" />
+        </RelativeLayout>
     </LinearLayout>
+
 </FrameLayout>

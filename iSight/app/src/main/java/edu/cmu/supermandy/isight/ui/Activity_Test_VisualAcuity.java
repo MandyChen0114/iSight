@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,25 +37,31 @@ public class Activity_Test_VisualAcuity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_visualacuity);
-
-        candidateText = (TextView) findViewById(R.id.candidate);
-        btnMicrophone = (ImageButton) findViewById(R.id.btn_mic);
-        hintText = (TextView) findViewById(R.id.hint);
-
-        btnMicrophone.setOnClickListener(new View.OnClickListener() {
-
+        setContentView(R.layout.activity_test_visualacuity_intro);
+        Button enterButton = (Button) findViewById(R.id.enterButton);
+        enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startSpeechToText();
-            }
-        });
+                setContentView(R.layout.activity_test_visualacuity);
 
-        btnRefresh = (ImageButton) findViewById(R.id.btn_refresh);
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                retry();
+                candidateText = (TextView) findViewById(R.id.candidate);
+                btnMicrophone = (ImageButton) findViewById(R.id.btn_mic);
+                hintText = (TextView) findViewById(R.id.hint);
+
+                btnMicrophone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startSpeechToText();
+                    }
+                });
+
+                btnRefresh = (ImageButton) findViewById(R.id.btn_refresh);
+                btnRefresh.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        retry();
+                    }
+                });
             }
         });
     }
