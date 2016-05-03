@@ -33,6 +33,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.PreparedStatement;
+
+import edu.cmu.supermandy.isight.exception.BadEyeTemplateSizeException;
+import edu.cmu.supermandy.isight.exception.NoFaceDetectedException;
 
 /**
  * Created by Mandy on 4/29/16.
@@ -315,8 +319,12 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
             } else {
                 // Learning finished, use the new templates for template
                 // matching
-                match_eye(eyearea_right, teplateR);
-                match_eye(eyearea_left, teplateL);
+                try {
+                    match_eye(eyearea_right, teplateR);
+                    match_eye(eyearea_left, teplateL);
+                } catch (BadEyeTemplateSizeException e) {
+
+                }
 
             }
         }
@@ -373,14 +381,14 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
         }
     }
 
-    private void match_eye(Rect area, Mat mTemplate) {
+    private void match_eye(Rect area, Mat mTemplate) throws BadEyeTemplateSizeException {
         Point matchLoc;
         Mat mROI = mGray.submat(area);
         int result_cols = mROI.cols() - mTemplate.cols() + 1;
         int result_rows = mROI.rows() - mTemplate.rows() + 1;
         // Check for bad template size
         if (mTemplate.cols() == 0 || mTemplate.rows() == 0) {
-            return;
+            throw new BadEyeTemplateSizeException();
         }
         Mat mResult = new Mat(result_cols, result_rows, CvType.CV_8U);
 
