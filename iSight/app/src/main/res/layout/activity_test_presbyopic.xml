@@ -4,7 +4,6 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     tools:context=".Activity_Test_VisualAcuity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,13 +35,12 @@
                 android:id="@+id/candidate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:textSize="60sp"
-                android:textStyle="normal"
-                android:layout_marginLeft="25dp"
-                android:text="N"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true" />
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:text="N" />
 
             <ImageButton
                 android:id="@+id/btn_refresh"
@@ -52,7 +50,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/refresh"
                 android:contentDescription="speak button"
-                android:layout_alignParentBottom="true"
+                android:layout_above="@+id/hint"
                 android:layout_alignParentEnd="true" />
 
             <ImageButton
@@ -63,20 +61,20 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/microphone"
                 android:contentDescription="speak button"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/hint" />
+                android:layout_above="@+id/hint"
+                android:layout_alignParentStart="true" />
 
             <TextView
-                android:layout_width="300sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Try to say: 'No'"
                 android:textColor="@color/colorPrimary"
                 android:textSize="64sp"
                 android:textStyle="normal"
                 android:textAlignment="center"
-                android:id="@+id/hint"
-                android:layout_alignParentTop="true"
-                android:layout_alignEnd="@+id/btn_refresh" />
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/hint" />
         </RelativeLayout>
     </LinearLayout>
 

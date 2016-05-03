@@ -80,7 +80,7 @@
 
 
                 <Button
-                    android:id="@+id/sign_in_button"
+                    android:id="@+id/login_sign_in_button"
                     style="@style/shortButtonStyle"
                     android:text="@string/action_sign_in"
                     android:layout_marginLeft="35dp"
@@ -88,7 +88,7 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginBottom="0dp" />
                 <Button
-                    android:id="@+id/sign_up_button"
+                    android:id="@+id/login_sign_up_button"
                     style="@style/shortButtonStyle"
                     android:layout_marginLeft="75dp"
                     android:layout_marginTop="25dp"

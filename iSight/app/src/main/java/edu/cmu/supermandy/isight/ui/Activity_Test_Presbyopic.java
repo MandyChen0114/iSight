@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-public class Activity_Test_VisualAcuity extends Activity {
+public class Activity_Test_Presbyopic extends Activity {
 
     public static final char[] candidates = {'N', 'E', 'F', 'P', 'T', 'O', 'Z', 'L', 'D'};
-    public static final float[] fontSizes = {60, 45, 35, 25, 16, 12, 6, 4, 2};
+    public static final float[] fontSizes = {20, 16, 14, 12, 10, 8, 6, 4, 2};
     public static final double[] scores = {1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5};
     public static final int MAX_RETRY_COUNT = 3;
 
@@ -37,12 +37,12 @@ public class Activity_Test_VisualAcuity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_visualacuity_intro);
+        setContentView(R.layout.activity_test_presbyopic_intro);
         Button enterButton = (Button) findViewById(R.id.enterButton);
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_test_visualacuity);
+                setContentView(R.layout.activity_test_presbyopic);
 
                 candidateText = (TextView) findViewById(R.id.candidate);
                 btnMicrophone = (ImageButton) findViewById(R.id.btn_mic);

@@ -93,6 +93,10 @@ public class Fragment_Test extends Fragment {
                         intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                         startActivity(intent);
                         break;
+                    case 1:
+                        intent=new Intent(getActivity(),Activity_Test_Presbyopic.class);
+                        startActivity(intent);
+                        break;
                     case 2:
                         intent = new Intent(getActivity(), Activity_Test_ColorBlind.class);
                         intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
