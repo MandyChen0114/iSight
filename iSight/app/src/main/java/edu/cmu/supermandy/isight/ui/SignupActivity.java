@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.sql.PreparedStatement;
+
+import edu.cmu.supermandy.isight.exception.UserFormValidationFailedException;
 import edu.cmu.supermandy.isight.model.User;
 import edu.cmu.supermandy.isight.util.DBDAO;
 
@@ -57,48 +60,49 @@ public class SignupActivity extends Activity {
     }
 
     private boolean insertUser() {
-        final DBDAO userdao = new DBDAO(this);
-        int userId;
-        String username = usernameEditText.getText().toString();
-        String email = emailEditText.getText().toString();
-        String password = passwordEditText.getText().toString();
-        String confirmPassword = confirmPasswordEditText.getText().toString();
-        String age = ageEditText.getText().toString();
-        String phoneNum = phoneNumEditText.getText().toString();
+        try {
+            final DBDAO userdao = new DBDAO(this);
+            int userId;
+            String username = usernameEditText.getText().toString();
+            String email = emailEditText.getText().toString();
+            String password = passwordEditText.getText().toString();
+            String confirmPassword = confirmPasswordEditText.getText().toString();
+            String age = ageEditText.getText().toString();
+            String phoneNum = phoneNumEditText.getText().toString();
 
-        /** check required info has all been filled out*/
-        if (username.isEmpty()||email.isEmpty()||password.isEmpty()||confirmPassword.isEmpty()||age.isEmpty() ) {
-            Toast.makeText(SignupActivity.this, "Please fill all information out.\n ", Toast.LENGTH_LONG).show();
+            /** check required info has all been filled out*/
+            if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || age.isEmpty()) {
+                throw new UserFormValidationFailedException("Please fill all information out.\n ");
+            }
+
+            /** check email validation*/
+            if (!email.contains("@")) {
+                throw new UserFormValidationFailedException("The email address is invalid.\n ");
+            }
+            /** check password and confirmed password match*/
+            if (!password.equals(confirmPassword)) {
+                throw new UserFormValidationFailedException("Passwords don't match.\n ");
+            }
+
+            /** check username has already been used*/
+            userId = userdao.checkDataExist("UserTable", "Username", "[" + username + "]");
+            if (userId != -1) {
+                throw new UserFormValidationFailedException("The username has already been used.\n ");
+            }
+
+            /** check email has already been used*/
+            userId = userdao.checkDataExist("UserTable", "Email", "[" + email + "]");
+            if (userId != -1) {
+                throw new UserFormValidationFailedException("The email address has already been used.\n ");
+            }
+
+            User newUser = new User(username, email, password, Integer.parseInt(age), phoneNum);
+            userdao.insertUser(newUser);
+            return true;
+        }
+        catch (UserFormValidationFailedException e) {
+            e.fix(SignupActivity.this);
             return false;
         }
-
-        /** check email validation*/
-        if(!email.contains("@")){
-            Toast.makeText(SignupActivity.this, "The email address is invalid.\n ", Toast.LENGTH_LONG).show();
-            return false;
-        }
-        /** check password and confirmed password match*/
-        if (!password.equals(confirmPassword)) {
-            Toast.makeText(SignupActivity.this, "Passwords don't match.\n ", Toast.LENGTH_LONG).show();
-            return false;
-        }
-
-        /** check username has already been used*/
-        userId = userdao.checkDataExist("UserTable", "Username", "[" + username + "]");
-        if (userId != -1) {
-            Toast.makeText(SignupActivity.this, "The username has already been used.\n ", Toast.LENGTH_LONG).show();
-            return false;
-        }
-
-        /** check email has already been used*/
-        userId = userdao.checkDataExist("UserTable", "Email", "[" + email + "]");
-        if (userId != -1) {
-            Toast.makeText(SignupActivity.this, "The email address has already been used.\n ", Toast.LENGTH_LONG).show();
-            return false;
-        }
-
-        User newUser = new User(username, email, password, Integer.parseInt(age), phoneNum);
-        userdao.insertUser(newUser);
-        return true;
     }
 }

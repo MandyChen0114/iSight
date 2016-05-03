@@ -36,8 +36,10 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import edu.cmu.supermandy.isight.exception.BadEyeTemplateSizeException;
 import edu.cmu.supermandy.isight.model.Record;
 import edu.cmu.supermandy.isight.util.DBDAO;
+
 
 /**
  * Created by Mandy on 4/29/16.
@@ -208,10 +210,10 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
                 resultTextView.setText(result);
                 resultTextView2.setText("Congratulations! You have a perfect proportion!");
 
-                String testres="Pupil Distance/ Face = "+result+"%";
+                String testres = "Pupil Distance/ Face = " + result + "%";
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String currentTimeStamp = dateFormat.format(new Date());
-                Record record=new Record(id,6,currentTimeStamp,testres);
+                Record record = new Record(id, 6, currentTimeStamp, testres);
                 dbdao.insertRecord(record);
 
             }
@@ -330,8 +332,12 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
             } else {
                 // Learning finished, use the new templates for template
                 // matching
-                match_eye(eyearea_right, teplateR);
-                match_eye(eyearea_left, teplateL);
+                try {
+                    match_eye(eyearea_right, teplateR);
+                    match_eye(eyearea_left, teplateL);
+                } catch (BadEyeTemplateSizeException e) {
+
+                }
 
             }
         }
@@ -388,14 +394,14 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
         }
     }
 
-    private void match_eye(Rect area, Mat mTemplate) {
+    private void match_eye(Rect area, Mat mTemplate) throws BadEyeTemplateSizeException {
         Point matchLoc;
         Mat mROI = mGray.submat(area);
         int result_cols = mROI.cols() - mTemplate.cols() + 1;
         int result_rows = mROI.rows() - mTemplate.rows() + 1;
         // Check for bad template size
         if (mTemplate.cols() == 0 || mTemplate.rows() == 0) {
-            return;
+            throw new BadEyeTemplateSizeException();
         }
         Mat mResult = new Mat(result_cols, result_rows, CvType.CV_8U);
 

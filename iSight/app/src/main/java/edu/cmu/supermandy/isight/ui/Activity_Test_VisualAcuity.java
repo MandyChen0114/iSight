@@ -17,8 +17,12 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
+
 import edu.cmu.supermandy.isight.model.Record;
 import edu.cmu.supermandy.isight.util.DBDAO;
+
+import edu.cmu.supermandy.isight.exception.NoSpeechResultException;
+
 
 public class Activity_Test_VisualAcuity extends Activity {
 
@@ -137,27 +141,33 @@ public class Activity_Test_VisualAcuity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case SPEECH_RECOGNITION_CODE: {
-                if (resultCode == RESULT_OK && null != data) {
+        try {
+            switch (requestCode) {
+                case SPEECH_RECOGNITION_CODE: {
+                    if (resultCode == RESULT_OK && null != data) {
 
-                    ArrayList<String> result = data
-                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    String text = result.get(0);
-                    char letter = Character.toUpperCase(text.charAt(0));
-                    if (letter == candidates[candidateIndex]) {
-                        // success
-                        hintText.setText("Correct! You said: " + text);
-                        nextLevel();
+                        ArrayList<String> result = data
+                                .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                        String text = result.get(0);
+                        char letter = Character.toUpperCase(text.charAt(0));
+                        if (letter == candidates[candidateIndex]) {
+                            // success
+                            hintText.setText("Correct! You said: " + text);
+                            nextLevel();
+                        } else {
+                            // failed
+                            hintText.setText("Wrong! You said: " + text);
+                            retry();
+                        }
                     } else {
-                        // failed
-                        hintText.setText("Wrong! You said: " + text);
-                        retry();
+                        throw new NoSpeechResultException();
                     }
+                    break;
                 }
-                break;
             }
-
+        }
+        catch (NoSpeechResultException e) {
+            e.fix(getApplicationContext());
         }
     }
 

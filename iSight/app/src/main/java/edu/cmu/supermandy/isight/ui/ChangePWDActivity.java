@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import edu.cmu.supermandy.isight.exception.AuthenticationFailedException;
 import edu.cmu.supermandy.isight.model.User;
 import edu.cmu.supermandy.isight.util.DBDAO;
 
@@ -42,39 +43,43 @@ public class ChangePWDActivity extends Activity {
     }
 
     private boolean changePWD() {
-        final DBDAO userdao = new DBDAO(this);
-        int userId = Integer.valueOf(this.getIntent().getStringExtra("Id"));
-        String oldPassword = oldPWDEditText.getText().toString();
-        String newPassword = newPWDEditText.getText().toString();
-        String confirmPassword = confirmPWDEditText.getText().toString();
+        try {
+            final DBDAO userdao = new DBDAO(this);
+            int userId = Integer.valueOf(this.getIntent().getStringExtra("Id"));
+            String oldPassword = oldPWDEditText.getText().toString();
+            String newPassword = newPWDEditText.getText().toString();
+            String confirmPassword = confirmPWDEditText.getText().toString();
 
-        String[] columnindex=new String[]{"Username","Email","Password","Age","PhoneNum"};
-        String[] userinfo=userdao.getRowData("UserTable", "Id", userId + " ", columnindex);
-        String usernamelong=userinfo[0];
-        String username=usernamelong.substring(1,usernamelong.length()-1);
-        String emaillong=userinfo[1];
-        String email=emaillong.substring(1,emaillong.length()-1);
-        String truePassword=userinfo[2];
-        Integer age=Integer.parseInt(userinfo[3]);
-        String phoneNum=userinfo[4];
+            String[] columnindex = new String[]{"Username", "Email", "Password", "Age", "PhoneNum"};
+            String[] userinfo = userdao.getRowData("UserTable", "Id", userId + " ", columnindex);
+            String usernamelong = userinfo[0];
+            String username = usernamelong.substring(1, usernamelong.length() - 1);
+            String emaillong = userinfo[1];
+            String email = emaillong.substring(1, emaillong.length() - 1);
+            String truePassword = userinfo[2];
+            Integer age = Integer.parseInt(userinfo[3]);
+            String phoneNum = userinfo[4];
 
-        /** check old password*/
-        if (!oldPassword.equals(truePassword)) {
-            Toast.makeText(ChangePWDActivity.this, "Password is incorrect.\n ", Toast.LENGTH_LONG).show();
+            /** check old password*/
+            if (!oldPassword.equals(truePassword)) {
+                throw new AuthenticationFailedException("Password is incorrect.\n");
+            }
+
+            /** check password and confirmed password match*/
+            if (!newPassword.equals(confirmPassword)) {
+                throw new AuthenticationFailedException("New passwords don't match.\n ");
+            }
+
+            userdao.deleteUser(userId);
+            System.out.println("------------------>deleted!");
+            User newuser = new User(username, email, newPassword, age, phoneNum);
+            userdao.insertUser(newuser);
+            System.out.println("------------------>inserted!");
+            return true;
+        }
+        catch (AuthenticationFailedException e) {
+            e.fix(ChangePWDActivity.this);
             return false;
         }
-
-        /** check password and confirmed password match*/
-        if (!newPassword.equals(confirmPassword)) {
-            Toast.makeText(ChangePWDActivity.this, "New passwords don't match.\n ", Toast.LENGTH_LONG).show();
-            return false;
-        }
-
-        userdao.deleteUser(userId);
-        System.out.println("------------------>deleted!");
-        User newuser=new User(username,email,newPassword,age,phoneNum);
-        userdao.insertUser(newuser);
-        System.out.println("------------------>inserted!");
-        return true;
     }
 }
