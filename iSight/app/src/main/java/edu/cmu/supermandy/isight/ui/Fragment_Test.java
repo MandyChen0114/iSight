@@ -100,6 +100,9 @@ public class Fragment_Test extends Fragment {
                         intent = new Intent(getActivity(), Activity_Test_AmslerGrid.class);
                         startActivity(intent);
                         break;
+                    case 4:
+                        intent = new Intent(getActivity(), Activity_Test_MotionAcuity.class);
+                        startActivity(intent);
                     case 5:
                         intent = new Intent(getActivity(), Activity_Test_Astigmatism.class);
                         startActivity(intent);

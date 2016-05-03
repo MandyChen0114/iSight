@@ -83,4 +83,7 @@
     <string name="account_age2">23</string>
     <string name="account_phoneNum">Phone Number:</string>
     <string name="account_phoneNum2">6505758852</string>
+
+    <string name="test_motionacuity">Motion Acuity</string>
+
 </resources>
