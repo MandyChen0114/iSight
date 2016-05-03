@@ -86,5 +86,6 @@
 
     <string name="test_motionacuity">Motion Acuity</string>
     <string name="test_visual_acuity">Visual Acuity</string>
+    <string name="test_presbyopic">Presbyopic</string>
 
 </resources>

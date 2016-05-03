@@ -92,6 +92,10 @@ public class Fragment_Test extends Fragment {
                         intent=new Intent(getActivity(),Activity_Test_VisualAcuity.class);
                         startActivity(intent);
                         break;
+                    case 1:
+                        intent=new Intent(getActivity(),Activity_Test_Presbyopic.class);
+                        startActivity(intent);
+                        break;
                     case 2:
                         intent = new Intent(getActivity(), Activity_Test_ColorBlind.class);
                         startActivity(intent);
