@@ -13,7 +13,7 @@
     <string name="password">Password</string>
     <string name="confirmpassword">Confirm Password</string>
     <string name="userAge">Age</string>
-    <string name="userPhoneNumber">Phone number (optional)</string>
+    <string name="userPhoneNumber">Phone number</string>
     <string name="action_back">Back</string>
     <string name="Test">Test</string>
     <string name="visual_acuity">Visual Acuity</string>

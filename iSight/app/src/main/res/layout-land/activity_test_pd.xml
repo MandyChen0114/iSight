@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/ToolBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/test_pd" />
+    </android.support.v7.widget.Toolbar>
+    <Button
+        android:id="@+id/pd_res_btn"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        style="@style/thinButtonStyle"
+        android:text="@string/action_showresult" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="2dp"
+   >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/testResult_pd"
+        style="@style/TestIntroTextViewStyle"
+
+        android:text="@string/test_result_pd"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:id="@+id/testResult_pd2"
+        style="@style/TestIntroTextViewStyle"
+        android:text="@string/test_result_pd2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/testResult_pd3"
+        style="@style/TestIntroTextViewStyle"
+        android:text="@string/test_result_pd3"/>
+</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/testResult_pd4"
+        style="@style/TestIntroTextViewStyle"
+        android:text="@string/test_result_pd4"/>
+    <org.opencv.android.JavaCameraView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/fd_activity_surface_view" />
+
+
+</LinearLayout>

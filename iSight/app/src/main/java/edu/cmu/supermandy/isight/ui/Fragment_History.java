@@ -38,10 +38,9 @@ public class Fragment_History extends Fragment {
         final String[] columnindex = new String[]{"UserId", "TestId", "Timestamp", "Result"};
 
         userid = this.getActivity().getIntent().getStringExtra("Id");
-//        if(dbdao.count("RecordTable")==0) {
-//            loadData(dbdao);
-//        }
-        loadData(dbdao);
+        if(dbdao.count("RecordTable")==0) {
+            loadData(dbdao);
+        }
         testSpinner = (Spinner) getActivity().findViewById(R.id.testSpinner);
         historyTextView = (TextView) getActivity().findViewById(R.id.historyTextView);
 
@@ -93,14 +92,14 @@ public class Fragment_History extends Fragment {
                 res2 = "Result: NO";
                 res3 = "Result: YES";
             } else if (i == 6) {
-                res1 = "Pupil Distance/ Face = 43.65%";
-                res2 = "Pupil Distance/ Face = 43.94%";
-                res3 = "Pupil Distance/ Face = 43.12%";
+                res1 = "\nPupil Distance/ Face = 43.65%";
+                res2 = "\nPupil Distance/ Face = 43.94%";
+                res3 = "\nPupil Distance/ Face = 43.12%";
             }
 
-            Record r1 = new Record(Integer.parseInt(userid), i, "2016-03-14 00:21:34", res1);
-            Record r2 = new Record(Integer.parseInt(userid), i, "2016-01-14 00:21:34", res2);
-            Record r3 = new Record(Integer.parseInt(userid), i, "2015-10-16 00:21:34", res3);
+            Record r1 = new Record(Integer.parseInt(userid), i, "2016-02-28 06:20:34", res1);
+            Record r2 = new Record(Integer.parseInt(userid), i, "2016-01-14 07:33:12", res2);
+            Record r3 = new Record(Integer.parseInt(userid), i, "2015-10-16 10:11:23", res3);
             dbdao.insertRecord(r1);
             dbdao.insertRecord(r2);
             dbdao.insertRecord(r3);

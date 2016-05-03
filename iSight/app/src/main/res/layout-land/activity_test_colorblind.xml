@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context=".Activity_Test">
+    tools:context=".Activity_Test_ColorBlind">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,10 +38,10 @@
 
 
             <Button
-                android:id="@+id/unablebtn"
+                android:id="@+id/showResultbtn"
 
                 style="@style/longButtonStyle"
-                android:text="@string/action_unable"
+               android:text="@string/action_showresult"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginRight="25dp"

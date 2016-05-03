@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.cmu.supermandy.isight.LoginActivity">
+    tools:context="edu.cmu.supermandy.isight.ui.LoginActivity">
 
     <!-- Login progress -->
     <ProgressBar
