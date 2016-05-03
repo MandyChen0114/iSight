@@ -18,7 +18,7 @@ import java.util.Random;
 public class Activity_Test_Presbyopic extends Activity {
 
     public static final char[] candidates = {'N', 'E', 'F', 'P', 'T', 'O', 'Z', 'L', 'D'};
-    public static final float[] fontSizes = {512, 256, 128, 64, 32, 16, 8, 4, 2};
+    public static final float[] fontSizes = {20, 16, 14, 12, 10, 8, 6, 4, 2};
     public static final double[] scores = {1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5};
     public static final int MAX_RETRY_COUNT = 3;
 

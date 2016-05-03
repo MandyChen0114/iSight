@@ -38,7 +38,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorPrimary"
-                android:textSize="512sp"
+                android:textSize="60sp"
                 android:textStyle="normal"
                 android:text="N" />
 
