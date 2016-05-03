@@ -28,7 +28,8 @@
         <activity android:name=".Activity_Quiz"/>
         <activity android:name=".Activity_Test_AmslerGrid"/>
         <activity android:name=".Activity_Test_Astigmatism"/>
-        <activity android:name=".Activity_Test_PD"/>
+        <activity android:name=".Activity_Test_PD"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Activity_Test_VisualAcuity"
             android:label="@string/title_activity_activity__test__visual_acuity"
