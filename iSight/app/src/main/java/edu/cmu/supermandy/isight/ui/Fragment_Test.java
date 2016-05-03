@@ -103,6 +103,7 @@ public class Fragment_Test extends Fragment {
                     case 4:
                         intent = new Intent(getActivity(), Activity_Test_MotionAcuity.class);
                         startActivity(intent);
+                        break;
                     case 5:
                         intent = new Intent(getActivity(), Activity_Test_Astigmatism.class);
                         startActivity(intent);
