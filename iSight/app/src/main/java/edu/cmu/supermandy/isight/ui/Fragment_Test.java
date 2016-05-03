@@ -90,6 +90,7 @@ public class Fragment_Test extends Fragment {
                 {
                     case 0:
                         intent=new Intent(getActivity(),Activity_Test_VisualAcuity.class);
+                        intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                         startActivity(intent);
                         break;
                     case 1:
@@ -98,22 +99,27 @@ public class Fragment_Test extends Fragment {
                         break;
                     case 2:
                         intent = new Intent(getActivity(), Activity_Test_ColorBlind.class);
+                        intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                         startActivity(intent);
                         break;
                     case 3:
                         intent = new Intent(getActivity(), Activity_Test_AmslerGrid.class);
+                        intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                         startActivity(intent);
                         break;
                     case 4:
                         intent = new Intent(getActivity(), Activity_Test_MotionAcuity.class);
+                        intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                         startActivity(intent);
                         break;
                     case 5:
                         intent = new Intent(getActivity(), Activity_Test_Astigmatism.class);
+                        intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                         startActivity(intent);
                         break;
                     case 6:
                         intent = new Intent(getActivity(), Activity_Test_PD.class);
+                        intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                         startActivity(intent);
                         break;
                     default:

@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.cmu.supermandy.isight.model.Quiz;
 import edu.cmu.supermandy.isight.model.Record;
 import edu.cmu.supermandy.isight.model.User;
@@ -137,5 +140,45 @@ public class DBDAO {
         }
         cursor.close();
         return rowData;
+    }
+
+    public List<String[]> getRowData(String TableName, String dbfield1, String fieldValue1, String dbfield2, String fieldValue2, String[] columnindex){
+       List<String[]> rowlist=new ArrayList<String[]>();
+
+        String Query = "Select * from " + TableName + " where " + dbfield1 + " = '" + fieldValue1+"' AND "+dbfield2+"= '"+fieldValue2+"';";
+        Cursor cursor = db.rawQuery(Query, null);
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return null;
+        }
+        while(cursor.moveToNext()){
+            String[] rowData=new String[columnindex.length];
+            for(int i=0;i<columnindex.length;i++) {
+                rowData[i] = cursor.getString(cursor.getColumnIndex(columnindex[i]));
+            }
+            rowlist.add(rowData);
+        }
+        cursor.close();
+        return rowlist;
+    }
+
+    public List<String[]> getTimeRowData(String TableName, String dbfield1, String fieldValue1, String dbfield2, String fieldValue2,String dbfield3,int fieldValue3, String[] columnindex){
+        List<String[]> rowlist=new ArrayList<String[]>();
+
+        String Query = "Select * from " + TableName + " where " + dbfield1 + " = '" + fieldValue1+"' AND "+dbfield2+"= '"+fieldValue2+"' AND "+dbfield3+">= '"+fieldValue3+"';";
+        Cursor cursor = db.rawQuery(Query, null);
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return null;
+        }
+        while(cursor.moveToNext()){
+            String[] rowData=new String[columnindex.length];
+            for(int i=0;i<columnindex.length;i++) {
+                rowData[i] = cursor.getString(cursor.getColumnIndex(columnindex[i]));
+            }
+            rowlist.add(rowData);
+        }
+        cursor.close();
+        return rowlist;
     }
 }
