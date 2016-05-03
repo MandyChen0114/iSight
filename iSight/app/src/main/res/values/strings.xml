@@ -29,7 +29,7 @@
     <string name="during1">1 month</string>
     <string name="during2">3 month</string>
     <string name="during3">6 month</string>
-    <string name="during4">12 month</string>
+    <string name="during4">All</string>
     <string name="action_choose_test">Test type : </string>
     <string name="login_account">Username or Email Address</string>
     <string name="test_colorblind">Color Blind Test</string>

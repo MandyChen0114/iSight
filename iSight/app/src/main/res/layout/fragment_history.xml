@@ -87,12 +87,10 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
-            android:text="Charts of tests will be here..." />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:adjustViewBounds="true"
-            android:id="@+id/test_history_image" />
+            android:lineSpacingExtra="4dp"
+            android:maxLines="10"
+            android:id="@+id/historyTextView"
+            android:text="" />
+
     </LinearLayout>
 </RelativeLayout>

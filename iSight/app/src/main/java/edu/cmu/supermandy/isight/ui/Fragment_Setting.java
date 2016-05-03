@@ -47,17 +47,16 @@ public class Fragment_Setting extends Fragment {
         settingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String s = settingListAdapter.getItem(position);
                 if(position==0) {
                     Intent intent = new Intent();
                     intent.setClass(getActivity(), AccountActivity.class);
-                    intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id").toString());
+                    intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                     startActivity(intent);
                 }
                 else if(position==1) {
                     Intent intent = new Intent();
                     intent.setClass(getActivity(), ChangePWDActivity.class);
-                    intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id").toString());
+                    intent.putExtra("Id", getActivity().getIntent().getStringExtra("Id"));
                     startActivity(intent);
                 }
                 else if(position==2) {
