@@ -34,27 +34,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="5dp">
 
 
             <Button
                 android:id="@+id/showResultbtn"
-
                 style="@style/longButtonStyle"
-               android:text="@string/action_showresult"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="0dp" />
+               android:text="@string/action_showresult" />
 
             <Button
                 android:id="@+id/nextbtn"
                 style="@style/longButtonStyle"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="0dp"
                 android:text="@string/action_next"
+                android:layout_marginLeft="50dp"
                 />
         </LinearLayout>
     </LinearLayout>

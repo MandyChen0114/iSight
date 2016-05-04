@@ -21,9 +21,9 @@ This is an Android APP to protect users' eyesight which is also a team project f
 
         task ndkBuild(type: Exec) {
              if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                 commandLine '**/Users/Mandy/Library/Android/sdk/ndk-bundle**/ndk-build.cmd', '-C', file('src/main/jni').absolutePath
+                 commandLine '/Users/Mandy/Library/Android/sdk/ndk-bundle/ndk-build.cmd', '-C', file('src/main/jni').absolutePath
              } else {
-                 commandLine '**/Users/Mandy/Library/Android/sdk/ndk-bundle/**ndk-build', '-C', file('src/main/jni').absolutePath
+                 commandLine '/Users/Mandy/Library/Android/sdk/ndk-bundle/ndk-build', '-C', file('src/main/jni').absolutePath
              }
          } 
 

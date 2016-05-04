@@ -38,9 +38,7 @@ public class Fragment_History extends Fragment {
         final String[] columnindex = new String[]{"UserId", "TestId", "Timestamp", "Result"};
 
         userid = this.getActivity().getIntent().getStringExtra("Id");
-        if(dbdao.count("RecordTable")==0) {
-            loadData(dbdao);
-        }
+
         testSpinner = (Spinner) getActivity().findViewById(R.id.testSpinner);
         historyTextView = (TextView) getActivity().findViewById(R.id.historyTextView);
 
@@ -50,6 +48,10 @@ public class Fragment_History extends Fragment {
         testSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println("-------------------->"+dbdao.checkDataExist("RecordTable","UserId",userid));
+
+                    loadData(dbdao);
+
                 if (position >= 2) position += 1;
 
                 String testResult = gethistory(dbdao, position, columnindex);

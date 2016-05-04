@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
+        style="@style/TestTitleTextViewStyle"
+        android:id="@+id/test_Name"
+        android:text="Color Blindness"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="2dp"
+        style="@style/TestIntroTextViewStyle"
+        android:id="@+id/test_Introduction"
+        android:gravity="left"
+        android:text="To test the ability of seeing color, or preceiving color difference by Ishihara plate test"/>
+
+
+</LinearLayout>

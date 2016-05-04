@@ -33,7 +33,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/sign_up_username"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -44,7 +44,7 @@
                 android:singleLine="true" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/sign_up_email"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -56,7 +56,7 @@
                 android:singleLine="true" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/sign_up_password"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -66,9 +66,19 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true" />
-
             <EditText
-                android:id="@+id/userAge"
+                android:id="@+id/sign_up_confirmpassword"
+                android:layout_width="330dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:hint="@string/confirmpassword"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/boundary"
+                android:layout_marginTop="15dp" />
+            <EditText
+                android:id="@+id/sign_up_userAge"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -80,7 +90,7 @@
                 android:singleLine="true" />
 
             <EditText
-                android:id="@+id/userPhoneNumber"
+                android:id="@+id/sign_up_userPhoneNumber"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -95,24 +105,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
+                android:gravity="center_horizontal">
 
 
                 <Button
                     android:id="@+id/finish_sign_up_button"
                     style="@style/shortButtonStyle"
                     android:layout_marginBottom="0dp"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginRight="25dp"
                     android:layout_marginTop="45dp"
                     android:text="@string/action_sign_up" />
 
                 <Button
-                    android:id="@+id/back_button"
+                    android:id="@+id/sign_up_back_button"
                     style="@style/shortButtonStyle"
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="100dp"
-                    android:layout_marginRight="25dp"
                     android:layout_marginTop="45dp"
                     android:text="@string/action_back" />
             </LinearLayout>
