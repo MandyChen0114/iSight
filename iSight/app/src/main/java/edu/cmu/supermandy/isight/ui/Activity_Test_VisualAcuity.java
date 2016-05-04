@@ -51,7 +51,7 @@ public class Activity_Test_VisualAcuity extends Activity {
         setContentView(R.layout.activity_test_visualacuity_intro);
         Button enterButton = (Button) findViewById(R.id.enterButton);
         id = Integer.valueOf(this.getIntent().getStringExtra("Id"));
-        DBDAO dbdao = new DBDAO(this);
+        dbdao = new DBDAO(this);
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

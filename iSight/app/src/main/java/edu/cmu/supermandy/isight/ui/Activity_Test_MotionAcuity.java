@@ -55,7 +55,7 @@ public class Activity_Test_MotionAcuity extends AppCompatActivity {
         startButton = (Button) findViewById(R.id.startButton);
 
         id = Integer.valueOf(this.getIntent().getStringExtra("Id"));
-        DBDAO dbdao = new DBDAO(this);
+        dbdao = new DBDAO(this);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class Activity_Test_MotionAcuity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Congratulations! You are going to the next level.", Toast.LENGTH_LONG).show();
                         level = level + 1;
                         letterCount = letterCount * 2;
-                        duration = duration / 2;
+                        duration = (int) (duration / 1.2);
 
                         init();
                     } else {
