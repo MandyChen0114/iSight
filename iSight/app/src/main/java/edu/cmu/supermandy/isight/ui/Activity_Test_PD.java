@@ -39,6 +39,7 @@ import java.util.Date;
 import edu.cmu.supermandy.isight.exception.BadEyeTemplateSizeException;
 import edu.cmu.supermandy.isight.model.Record;
 import edu.cmu.supermandy.isight.util.DBDAO;
+import edu.cmu.supermandy.isight.ws.remote.RecordRequest;
 
 
 /**
@@ -195,6 +196,7 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
 
         id = Integer.valueOf(this.getIntent().getStringExtra("Id"));
         final DBDAO dbdao = new DBDAO(this);
+        final RecordRequest rq = new RecordRequest();
 
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.fd_activity_surface_view);
         mOpenCvCameraView.setVisibility(CameraBridgeViewBase.VISIBLE);
@@ -215,7 +217,7 @@ public class Activity_Test_PD extends Activity implements CvCameraViewListener2 
                 String currentTimeStamp = dateFormat.format(new Date());
                 Record record = new Record(id, 6, currentTimeStamp, testres);
                 dbdao.insertRecord(record);
-
+                rq.insertRecord(record);
             }
         });
 

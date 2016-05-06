@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import edu.cmu.supermandy.isight.exception.UserFormValidationFailedException;
 import edu.cmu.supermandy.isight.model.User;
 import edu.cmu.supermandy.isight.util.DBDAO;
+import edu.cmu.supermandy.isight.ws.remote.UserRequest;
 
 /**
  * Created by Mandy on 4/4/16.
@@ -62,6 +63,7 @@ public class SignupActivity extends Activity {
     private boolean insertUser() {
         try {
             final DBDAO userdao = new DBDAO(this);
+            final UserRequest ur = new UserRequest();
             int userId;
             String username = usernameEditText.getText().toString();
             String email = emailEditText.getText().toString();
@@ -98,6 +100,7 @@ public class SignupActivity extends Activity {
 
             User newUser = new User(username, email, password, Integer.parseInt(age), phoneNum);
             userdao.insertUser(newUser);
+            ur.insertUser(newUser);
             return true;
         }
         catch (UserFormValidationFailedException e) {

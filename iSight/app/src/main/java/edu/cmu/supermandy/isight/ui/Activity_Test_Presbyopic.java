@@ -21,6 +21,7 @@ import edu.cmu.supermandy.isight.model.Record;
 import edu.cmu.supermandy.isight.util.DBDAO;
 
 import edu.cmu.supermandy.isight.exception.NoSpeechResultException;
+import edu.cmu.supermandy.isight.ws.remote.RecordRequest;
 
 
 public class Activity_Test_Presbyopic extends Activity {
@@ -43,6 +44,7 @@ public class Activity_Test_Presbyopic extends Activity {
     private int id;
     private Random random = new Random();
     DBDAO dbdao;
+    RecordRequest rq;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class Activity_Test_Presbyopic extends Activity {
         Button enterButton = (Button) findViewById(R.id.enterButton);
         id = Integer.valueOf(this.getIntent().getStringExtra("Id"));
         dbdao = new DBDAO(this);
+        rq = new RecordRequest();
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +115,7 @@ public class Activity_Test_Presbyopic extends Activity {
         String result="Level: "+Double.toString(scores[level]);
         Record record=new Record(id,1,currentTimeStamp,result);
         dbdao.insertRecord(record);
+        rq.insertRecord(record);
     }
 
     /**

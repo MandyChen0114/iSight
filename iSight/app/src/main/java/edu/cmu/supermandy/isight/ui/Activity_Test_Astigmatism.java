@@ -14,6 +14,7 @@ import java.util.Date;
 
 import edu.cmu.supermandy.isight.model.Record;
 import edu.cmu.supermandy.isight.util.DBDAO;
+import edu.cmu.supermandy.isight.ws.remote.RecordRequest;
 
 /**
  * Created by Mandy on 4/28/16.
@@ -33,6 +34,7 @@ String testresult;
         astigmatism_res_btn=(Button) findViewById(R.id.astigmatism_res_btn);
         id = Integer.valueOf(this.getIntent().getStringExtra("Id"));
         final DBDAO dbdao = new DBDAO(this);
+        final RecordRequest rq = new RecordRequest();
         astigmatism_res_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +53,7 @@ String testresult;
                 String currentTimeStamp = dateFormat.format(new Date());
                 Record record=new Record(id,5,currentTimeStamp,result);
                 dbdao.insertRecord(record);
+                rq.insertRecord(record);
             }
         });
     }

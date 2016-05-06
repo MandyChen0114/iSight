@@ -12,6 +12,7 @@ import java.util.Date;
 
 import edu.cmu.supermandy.isight.model.Record;
 import edu.cmu.supermandy.isight.util.DBDAO;
+import edu.cmu.supermandy.isight.ws.remote.RecordRequest;
 
 /**
  * Created by Mandy on 4/28/16.
@@ -33,6 +34,7 @@ public class Activity_Test_AmslerGrid extends Activity{
 
         id = Integer.valueOf(this.getIntent().getStringExtra("Id"));
         final DBDAO dbdao = new DBDAO(this);
+        final RecordRequest rq = new RecordRequest();
         resultbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +52,7 @@ public class Activity_Test_AmslerGrid extends Activity{
                 String currentTimeStamp = dateFormat.format(new Date());
                 Record record=new Record(id,3,currentTimeStamp,result);
                 dbdao.insertRecord(record);
+                rq.insertRecord(record);
             }
         });
     }
